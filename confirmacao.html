@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagamento Confirmado | Face IA</title>
+    
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    
+    fbq('init', '1403984070997038');
+    fbq('track', 'PageView');
+    // Evento de compra com valor atualizado
+    fbq('track', 'Purchase', {
+        value: 49.90,
+        currency: 'BRL'
+    });
+    </script>
+    <noscript>
+    <img height="1" width="1" style="display:none" 
+    src="https://www.facebook.com/tr?id=1403984070997038&ev=PageView&noscript=1"/>
+    </noscript>
+    <!-- End Meta Pixel Code -->
+    
+    <style>
+        /* Reset e configurações base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        :root {
+            --color-bg-primary: #f8fafc;
+            --color-bg-secondary: #ffffff;
+            --color-primary: #0f172a;
+            --color-secondary: #475569;
+            --color-accent: #3b82f6;
+            --color-success: #10b981;
+            --color-warning: #f59e0b;
+            --color-border: #e2e8f0;
+            --color-text-primary: #0f172a;
+            --color-text-secondary: #475569;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --radius-sm: 0.5rem;
+            --radius-md: 0.75rem;
+            --radius-lg: 1rem;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            color: var(--color-text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 480px;
+            margin: 0 auto;
+        }
+        
+        /* Animação de entrada */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        @keyframes confetti {
+            0% { transform: translateY(0) rotate(0); opacity: 1; }
+            100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+        }
+        
+        /* Card principal */
+        .confirmation-card {
+            background-color: var(--color-bg-secondary);
+            border-radius: var(--radius-lg);
+            padding: 2.5rem 2rem;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--color-border);
+            margin-bottom: 2rem;
+            text-align: center;
+            animation: fadeInUp 0.8s ease-out;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .confirmation-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--color-success), var(--color-accent));
+            border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+        }
+        
+        /* Cabeçalho */
+        .header {
+            margin-bottom: 2rem;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+        
+        .logo {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+        }
+        
+        .logo-icon {
+            color: var(--color-accent);
+            animation: pulse 2s infinite;
+        }
+        
+        /* Conteúdo de confirmação */
+        .confirmation-icon {
+            font-size: 4.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--color-success);
+            line-height: 1;
+            animation: pulse 2s infinite;
+            display: inline-block;
+        }
+        
+        h1 {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--color-text-primary);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .confirmation-text {
+            font-size: 1.125rem;
+            color: var(--color-text-secondary);
+            margin-bottom: 2.5rem;
+            line-height: 1.7;
+            animation: fadeInUp 0.8s ease-out 0.4s both;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(16, 185, 129, 0.1));
+            border-radius: var(--radius-md);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border: 2px solid rgba(59, 130, 246, 0.2);
+            animation: fadeInUp 0.8s ease-out 0.6s both;
+        }
+        
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1.25rem;
+            background: linear-gradient(135deg, var(--color-success), #0da172);
+            color: white;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 1rem;
+        }
+        
+        .service-info {
+            font-size: 1.125rem;
+            color: var(--color-text-primary);
+            font-weight: 500;
+        }
+        
+        /* Progress animation */
+        .progress-container {
+            margin: 2rem 0;
+            animation: fadeInUp 0.8s ease-out 0.8s both;
+        }
+        
+        .progress-title {
+            font-size: 1.125rem;
+            color: var(--color-text-secondary);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        .progress-steps {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            margin-bottom: 1.5rem;
+        }
+        
+        .progress-steps::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 10%;
+            right: 10%;
+            height: 3px;
+            background: var(--color-border);
+            z-index: 1;
+        }
+        
+        .progress-step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            z-index: 2;
+            position: relative;
+            flex: 1;
+        }
+        
+        .step-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--color-bg-secondary);
+            border: 3px solid var(--color-border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            color: var(--color-text-secondary);
+            margin-bottom: 0.5rem;
+            transition: var(--transition);
+        }
+        
+        .step-icon.active {
+            background: var(--color-accent);
+            border-color: var(--color-accent);
+            color: white;
+            animation: pulse 1.5s infinite;
+        }
+        
+        .step-label {
+            font-size: 0.75rem;
+            color: var(--color-text-secondary);
+            text-align: center;
+            font-weight: 500;
+        }
+        
+        .next-steps {
+            background-color: rgba(245, 158, 11, 0.1);
+            border-radius: var(--radius-md);
+            padding: 1.25rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid var(--color-warning);
+            text-align: left;
+            animation: fadeInUp 0.8s ease-out 1s both;
+        }
+        
+        .next-steps h3 {
+            color: var(--color-warning);
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        
+        .next-steps ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .next-steps li {
+            color: var(--color-text-secondary);
+            margin-bottom: 0.5rem;
+            font-size: 0.9375rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .next-steps li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--color-success);
+            font-weight: bold;
+        }
+        
+        /* Seção do mini quiz */
+        .quiz-section {
+            background-color: var(--color-bg-primary);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            border: 1px solid var(--color-border);
+            margin-top: 1.5rem;
+            animation: fadeInUp 0.8s ease-out 1.2s both;
+        }
+        
+        .quiz-title {
+            font-size: 1.375rem;
+            font-weight: 700;
+            color: var(--color-text-primary);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        
+        .quiz-subtitle {
+            color: var(--color-text-secondary);
+            font-size: 0.9375rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            line-height: 1.5;
+        }
+        
+        .quiz-options {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .quiz-button {
+            padding: 1.25rem 1.5rem;
+            border: 2px solid var(--color-border);
+            background-color: var(--color-bg-secondary);
+            border-radius: var(--radius-md);
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--color-text-primary);
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+        }
+        
+        .quiz-button:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--color-accent);
+            background-color: #eff6ff;
+        }
+        
+        .quiz-button.selected {
+            background: linear-gradient(135deg, #eff6ff, #dbeafe);
+            border-color: var(--color-accent);
+            color: var(--color-accent);
+            transform: scale(1.02);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .feedback-message {
+            text-align: center;
+            color: var(--color-success);
+            font-weight: 600;
+            font-size: 1.125rem;
+            padding: 1.25rem;
+            background-color: rgba(16, 185, 129, 0.1);
+            border-radius: var(--radius-md);
+            margin-top: 1.5rem;
+            display: none;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            animation: fadeInUp 0.5s ease-out;
+        }
+        
+        .feedback-message.show {
+            display: block;
+        }
+        
+        /* Celebration effect */
+        .confetti {
+            position: fixed;
+            width: 15px;
+            height: 15px;
+            background: var(--color-accent);
+            border-radius: 50%;
+            opacity: 0;
+            pointer-events: none;
+            z-index: 1000;
+        }
+        
+        /* Rodapé */
+        .footer {
+            text-align: center;
+            color: var(--color-text-secondary);
+            font-size: 0.875rem;
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--color-border);
+            width: 100%;
+            max-width: 480px;
+            animation: fadeInUp 0.8s ease-out 1.4s both;
+        }
+        
+        .footer a {
+            color: var(--color-accent);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Responsividade */
+        @media (max-width: 640px) {
+            body {
+                padding: 0.75rem;
+            }
+            
+            .confirmation-card {
+                padding: 2rem 1.5rem;
+            }
+            
+            h1 {
+                font-size: 1.75rem;
+            }
+            
+            .confirmation-text {
+                font-size: 1.0625rem;
+            }
+            
+            .quiz-section {
+                padding: 1.75rem;
+            }
+            
+            .quiz-button {
+                padding: 1.125rem 1.25rem;
+                font-size: 1.0625rem;
+            }
+        }
+        
+        @media (max-width: 360px) {
+            .confirmation-card {
+                padding: 1.75rem 1.25rem;
+            }
+            
+            .quiz-section {
+                padding: 1.5rem;
+            }
+            
+            h1 {
+                font-size: 1.625rem;
+            }
+            
+            .quiz-button {
+                padding: 1rem 1.125rem;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Cabeçalho com logo -->
+        <div class="header">
+            <div class="logo">
+                <span class="logo-icon">🧠</span>
+                Face IA
+            </div>
+        </div>
+        
+        <!-- Card de confirmação principal -->
+        <div class="confirmation-card">
+            <!-- Ícone animado e título -->
+            <div class="confirmation-icon">✅</div>
+            <h1>Pagamento confirmado ✅</h1>
+            
+            <p class="confirmation-text">
+                Obrigado por confiar na Face IA.<br>
+                Seu pagamento foi confirmado e seu atendimento já está em andamento.
+            </p>
+            
+            <!-- Box de destaque com informações -->
+            <div class="highlight-box">
+                <div class="status-badge">
+                    <span>✅</span>
+                    Status: Confirmado
+                </div>
+                <p class="service-info">Ensaio Fotográfico com IA</p>
+            </div>
+            
+            <!-- Animação de progresso -->
+            <div class="progress-container">
+                <h3 class="progress-title">Próximos passos do seu atendimento:</h3>
+                <div class="progress-steps">
+                    <div class="progress-step">
+                        <div class="step-icon active">1</div>
+                        <span class="step-label">Pagamento</span>
+                    </div>
+                    <div class="progress-step">
+                        <div class="step-icon" id="step2">2</div>
+                        <span class="step-label">Análise</span>
+                    </div>
+                    <div class="progress-step">
+                        <div class="step-icon" id="step3">3</div>
+                        <span class="step-label">Produção</span>
+                    </div>
+                    <div class="progress-step">
+                        <div class="step-icon" id="step4">4</div>
+                        <span class="step-label">Entrega</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Instruções -->
+            <div class="next-steps">
+                <h3>📋 O que acontece agora?</h3>
+                <ul>
+                    <li>Nossa equipe analisará sua foto </li>
+                    <li>Você receberá atualizações por WhatsApp</li>
+                    <li>Seu ensaio ficará pronto em até 24 horas</li>
+                </ul>
+            </div>
+            
+            <!-- Seção do mini quiz interativo -->
+            <div class="quiz-section">
+                <h2 class="quiz-title">Como foi seu atendimento até agora?</h2>
+                <p class="quiz-subtitle">Sua opinião nos ajuda a melhorar cada vez mais</p>
+                
+                <div class="quiz-options">
+                    <button class="quiz-button" data-rating="excellent">
+                        <span>⭐</span> Excelente ⭐⭐⭐⭐⭐
+                    </button>
+                    <button class="quiz-button" data-rating="good">
+                        <span>🙂</span> Bom – Foi tudo tranquilo
+                    </button>
+                    <button class="quiz-button" data-rating="regular">
+                        <span>😐</span> Regular – Pode melhorar
+                    </button>
+                </div>
+                
+                <div class="feedback-message" id="feedbackMessage">
+                    <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">🎉</div>
+                    <strong>Obrigado pelo seu feedback!</strong><br>
+                    <small>Sua opinião é muito valiosa para nós.</small>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Rodapé -->
+    <div class="footer">
+        <p>© 2023 Face IA. Ensaios fotográficos com inteligência artificial.</p>
+        <p><a href="https://face-ia.site">← Voltar para o site principal</a></p>
+    </div>
+    
+    <script>
+        // Script para interatividade avançada
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('✅ Evento Purchase disparado: R$ 49,90 (BRL)');
+            
+            const quizButtons = document.querySelectorAll('.quiz-button');
+            const feedbackMessage = document.getElementById('feedbackMessage');
+            const stepIcons = [document.getElementById('step2'), 
+                              document.getElementById('step3'), 
+                              document.getElementById('step4')];
+            
+            // Função para criar efeito de confete
+            function createConfetti() {
+                for (let i = 0; i < 50; i++) {
+                    const confetti = document.createElement('div');
+                    confetti.className = 'confetti';
+                    confetti.style.left = Math.random() * 100 + 'vw';
+                    confetti.style.top = '-20px';
+                    confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 60%)`;
+                    confetti.style.width = Math.random() * 10 + 10 + 'px';
+                    confetti.style.height = confetti.style.width;
+                    
+                    document.body.appendChild(confetti);
+                    
+                    // Animação do confete
+                    confetti.animate([
+                        { 
+                            transform: `translateY(0) rotate(0deg)`, 
+                            opacity: 1 
+                        },
+                        { 
+                            transform: `translateY(${window.innerHeight}px) rotate(${Math.random() * 720}deg)`, 
+                            opacity: 0 
+                        }
+                    ], {
+                        duration: Math.random() * 2000 + 2000,
+                        easing: 'cubic-bezier(0.215, 0.61, 0.355, 1)'
+                    });
+                    
+                    // Remove após animação
+                    setTimeout(() => confetti.remove(), 4000);
+                }
+            }
+            
+            // Animação progressiva dos passos
+            let currentStep = 1;
+            const stepInterval = setInterval(() => {
+                if (currentStep <= 3) {
+                    stepIcons[currentStep - 1].classList.add('active');
+                    stepIcons[currentStep - 1].style.animation = 'pulse 1.5s infinite';
+                    currentStep++;
+                } else {
+                    clearInterval(stepInterval);
+                }
+            }, 1000);
+            
+            // Interatividade do quiz
+            quizButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove seleção anterior
+                    quizButtons.forEach(btn => {
+                        btn.classList.remove('selected');
+                        btn.style.transform = '';
+                    });
+                    
+                    // Adiciona seleção atual
+                    this.classList.add('selected');
+                    
+                    // Efeito visual baseado na escolha
+                    const rating = this.getAttribute('data-rating');
+                    let emoji = '🎉';
+                    
+                    if (rating === 'excellent') {
+                        createConfetti();
+                        emoji = '🎊';
+                        this.style.transform = 'scale(1.05)';
+                    } else if (rating === 'good') {
+                        emoji = '🙌';
+                        this.style.transform = 'scale(1.03)';
+                    } else {
+                        emoji = '📝';
+                        this.style.transform = 'scale(1.02)';
+                    }
+                    
+                    // Atualiza mensagem de feedback
+                    feedbackMessage.innerHTML = `
+                        <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">${emoji}</div>
+                        <strong>Obrigado pelo seu feedback!</strong><br>
+                        <small>Sua opinião é muito valiosa para nós.</small>
+                    `;
+                    
+                    // Mostra mensagem com animação
+                    feedbackMessage.classList.remove('show');
+                    setTimeout(() => {
+                        feedbackMessage.classList.add('show');
+                    }, 10);
+                    
+                    // Feedback no console
+                    console.log(`📊 Feedback registrado: ${rating}`);
+                });
+                
+                // Efeito hover adicional
+                button.addEventListener('mouseenter', function() {
+                    if (!this.classList.contains('selected')) {
+                        this.style.transform = 'translateY(-3px)';
+                    }
+                });
+                
+                button.addEventListener('mouseleave', function() {
+                    if (!this.classList.contains('selected')) {
+                        this.style.transform = '';
+                    }
+                });
+            });
+            
+            // Efeito de digitação no título (opcional)
+            const title = document.querySelector('h1');
+            const originalText = title.textContent;
+            title.textContent = '';
+            let charIndex = 0;
+            
+            function typeWriter() {
+                if (charIndex < originalText.length) {
+                    title.textContent += originalText.charAt(charIndex);
+                    charIndex++;
+                    setTimeout(typeWriter, 50);
+                }
+            }
+            
+            // Inicia efeito de digitação após 0.5s
+            setTimeout(typeWriter, 500);
+        });
+    </script>
+</body>
+</html>
