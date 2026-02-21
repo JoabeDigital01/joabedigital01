@@ -16,10 +16,8 @@
                         dark: { 900: '#050505', 800: '#0a0a0a', 700: '#141414' }
                     },
                     boxShadow: {
-                        'neon-cyan': '0 0 30px rgba(0, 229, 255, 0.4)',
-                        'neon-purple': '0 0 25px rgba(138, 46, 255, 0.5)',
-                    },
-                    animation: { 'spin-slow': 'spin 3s linear infinite', }
+                        'neon-cyan': '0 0 20px rgba(0, 229, 255, 0.3)',
+                    }
                 }
             }
         }
@@ -28,145 +26,164 @@
         body { background-color: #050505; color: #e2e8f0; }
         .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); }
         .text-gradient { background-clip: text; -webkit-background-clip: text; color: transparent; background-image: linear-gradient(to right, #00E5FF, #8A2EFF); }
-        .interactive-btn:active { transform: scale(0.98); }
+        .interactive-btn:active { transform: scale(0.96); }
     </style>
 </head>
 <body class="antialiased overflow-x-hidden">
 
-    <nav class="flex justify-center py-6 bg-dark-900/50 backdrop-blur-md fixed w-full z-50 border-b border-white/5">
-        <div class="text-2xl font-black tracking-widest flex items-center">
-            <span class="text-brand-cyan mr-1">◆</span> FACE<span class="text-brand-purple">IA</span> STUDIO
+    <nav class="flex justify-center py-4 bg-dark-900/80 backdrop-blur-md fixed w-full z-50 border-b border-white/5">
+        <div class="text-xl md:text-2xl font-black tracking-widest flex items-center">
+            <span class="text-brand-cyan mr-1">◆</span> FACE<span class="text-brand-purple">IA</span>
         </div>
     </nav>
 
-    <section class="pt-32 pb-20 px-6 relative overflow-hidden">
-        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-brand-purple/20 rounded-full blur-[120px] -z-10 opacity-40"></div>
+    <section class="pt-28 pb-16 px-4 relative overflow-hidden">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-brand-purple/20 rounded-full blur-[100px] -z-10 opacity-30"></div>
 
-        <div class="max-w-5xl mx-auto text-center">
-            <div class="inline-flex items-center bg-white/10 rounded-full px-4 py-2 mb-8 border border-white/20 animate-bounce">
-                 <span class="bg-red-500 w-2 h-2 rounded-full mr-3"></span>
-                 <span class="text-xs font-bold text-white uppercase tracking-wider">Alerta de Oferta Insana (Por Tempo Limitado)</span>
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="inline-flex items-center bg-white/10 rounded-full px-3 py-1.5 mb-6 border border-white/20 animate-pulse">
+                 <span class="bg-red-500 w-2 h-2 rounded-full mr-2"></span>
+                 <span class="text-[10px] md:text-xs font-bold text-white uppercase tracking-wider">Oferta Liberada</span>
              </div>
-            <h1 class="text-5xl md:text-7xl font-black leading-none mb-6">
-                6 Fotos de Luxo. <br> <span class="text-gradient">Por Menos de Uma Pizza.</span>
+            <h1 class="text-4xl md:text-6xl font-black leading-tight mb-4">
+                6 Fotos de Luxo. <br> <span class="text-gradient">Por Menos de 1 Pizza.</span>
             </h1>
-            <p class="text-xl text-gray-400 mb-10 leading-relaxed max-w-2xl mx-auto">
-                O Face IA Studio transforma suas selfies comuns em ensaios fotográficos profissionais usando a IA mais avançada do mundo. 
-                <span class="text-white font-bold block mt-2">Custa R$ 19,90 e fica pronto enquanto você toma um café.</span>
+            <p class="text-lg md:text-xl text-gray-400 mb-8 leading-relaxed px-2">
+                Transforme selfies comuns em ensaios profissionais. 
+                <span class="text-white font-bold block mt-1">Custa R$ 19,90 e fica pronto em minutos.</span>
             </p>
-            <a href="#oferta" class="interactive-btn inline-flex items-center justify-center bg-brand-cyan hover:bg-cyan-400 text-gray-900 font-black text-xl py-5 px-12 rounded-full shadow-neon-cyan transition-all hover:scale-105">
-                QUERO MINHAS 6 FOTOS POR R$ 19,90
+            <a href="#oferta" class="interactive-btn flex items-center justify-center w-full md:w-auto md:inline-flex bg-brand-cyan text-dark-900 font-black text-lg md:text-xl py-4 md:py-5 px-8 rounded-2xl md:rounded-full shadow-neon-cyan transition-all hover:scale-105">
+                QUERO MEU ENSAIO 👉
             </a>
         </div>
     </section>
 
-    <section class="py-20 bg-dark-800 relative">
-        <div class="max-w-6xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-                <h2 class="text-3xl font-bold mb-6 leading-tight">Não Acredita? <span class="text-brand-purple">Veja a Mágica Acontecer.</span></h2>
-                <p class="text-gray-400 text-lg mb-8">
-                    Nossa tecnologia analisa seus traços e recria sua imagem em cenários de luxo. Clique no botão ao lado para simular como uma selfie simples se transforma em uma obra de arte.
+    <section class="py-12 bg-dark-800 relative border-y border-white/5">
+        <div class="max-w-5xl mx-auto px-4 grid lg:grid-cols-2 gap-10 items-center">
+            <div class="text-center lg:text-left">
+                <h2 class="text-3xl md:text-4xl font-black mb-4 leading-tight">A Mágica do <span class="text-brand-purple">Antes e Depois</span></h2>
+                <p class="text-gray-400 text-base md:text-lg mb-6 px-2 lg:px-0">
+                    Clique no botão abaixo da foto e veja como a nossa IA pegou uma selfie comum e transformou em uma imagem de estúdio premium.
                 </p>
-                <div class="flex items-center space-x-4 text-sm text-gray-500">
-                    <div class="flex -space-x-3">
-                        <img class="w-10 h-10 rounded-full border-2 border-dark-800" src="https://i.pravatar.cc/100?img=1" alt="User">
-                        <img class="w-10 h-10 rounded-full border-2 border-dark-800" src="https://i.pravatar.cc/100?img=5" alt="User">
-                        <img class="w-10 h-10 rounded-full border-2 border-dark-800" src="https://i.pravatar.cc/100?img=9" alt="User">
-                    </div>
-                    <p>+2.400 pessoas geraram fotos hoje.</p>
-                </div>
             </div>
 
-            <div class="glass p-4 rounded-3xl border-2 border-white/10 relative relative">
-                <div id="loadingBar" class="hidden absolute top-0 left-0 h-1 bg-brand-cyan transition-all duration-[3000ms] ease-out z-20" style="width: 0%"></div>
+            <div class="glass p-3 rounded-3xl border border-white/10 relative mx-auto w-full max-w-sm">
+                <div id="loadingBar" class="hidden absolute top-0 left-0 h-1 bg-brand-cyan transition-all duration-[2000ms] ease-out z-20 rounded-t-3xl" style="width: 0%"></div>
                 
                 <div class="aspect-[4/5] relative rounded-2xl overflow-hidden bg-dark-900">
-                    <img id="beforeImage" src="https://placehold.co/600x750/333/999?text=Selfie+Comum+(Antes)" alt="Antes" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-500">
+                    <img id="beforeImage" src="https://cdn.jsdelivr.net/gh/joabedigital01/imagens-site/criativos/siteantes1.jpg" alt="Selfie Antes" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-500">
                     
-                    <img id="afterImage" src="https://placehold.co/600x750/8A2EFF/fff?text=Resultado+Face+IA+Studio+(Depois)" alt="Depois" class="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-500">
+                    <img id="afterImage" src="https://cdn.jsdelivr.net/gh/joabedigital01/imagens-site/criativos/sitedepois1.png" alt="Resultado IA" class="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-500">
 
-                    <button id="simulateBtn" onclick="startSimulation()" class="absolute bottom-8 left-1/2 -translate-x-1/2 bg-white text-dark-900 font-bold px-8 py-4 rounded-full shadow-xl hover:scale-105 transition flex items-center z-30 whitespace-nowrap interactive-btn">
-                        <span id="btnText">✨ CLIQUE PARA SIMULAR O RESULTADO</span>
-                        <svg id="btnIcon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
-                        <svg id="loadingIcon" class="animate-spin -ml-1 mr-3 h-5 w-5 text-dark-900 hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
+                    <button id="simulateBtn" onclick="startSimulation()" class="absolute bottom-6 left-1/2 -translate-x-1/2 bg-white text-dark-900 font-bold text-sm md:text-base px-6 py-3 rounded-full shadow-2xl hover:scale-105 transition flex items-center z-30 whitespace-nowrap interactive-btn w-11/12 justify-center">
+                        <span id="btnText">✨ APLICAR EFEITO ESTÚDIO IA</span>
+                        <svg id="loadingIcon" class="animate-spin ml-2 h-5 w-5 text-dark-900 hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
                     </button>
                 </div>
-                <p class="text-center text-xs text-gray-500 mt-4">Simulação ilustrativa. O resultado final depende das suas fotos.</p>
             </div>
         </div>
     </section>
 
-    <section id="oferta" class="py-24 relative overflow-hidden">
-        <div class="max-w-4xl mx-auto px-6">
-            <div class="glass rounded-[3rem] p-8 md:p-14 text-center relative shadow-2xl border-t border-brand-cyan/20">
-                
-                <h2 class="text-4xl md:text-5xl font-black mb-6">
-                    Oferta de Lançamento: <br><span class="text-brand-cyan">Pack Essencial (6 Fotos)</span>
-                </h2>
-                <p class="text-xl text-gray-300 mb-10 max-w-xl mx-auto">
-                    Estamos liberando essa tecnologia a preço de custo para você provar o poder do Face IA Studio.
-                </p>
+    <section class="py-16 px-4">
+        <div class="max-w-5xl mx-auto text-center">
+            <h2 class="text-2xl md:text-3xl font-black mb-2">1 Selfie. Infinitas Possibilidades.</h2>
+            <p class="text-gray-400 mb-10">Veja outros estilos gerados a partir da mesma foto base.</p>
+            
+            <div class="grid grid-cols-2 md:grid-cols-2 gap-4 max-w-2xl mx-auto">
+                <div class="rounded-2xl overflow-hidden border border-white/10 relative group">
+                    <img src="https://cdn.jsdelivr.net/gh/joabedigital01/imagens-site/criativos/sitedepois2.png" alt="Estilo 2" class="w-full h-auto object-cover transform transition duration-500 group-hover:scale-110">
+                    <div class="absolute bottom-2 left-2 bg-black/70 text-white text-[10px] px-2 py-1 rounded">Estilo: Retrato Clássico</div>
+                </div>
+                <div class="rounded-2xl overflow-hidden border border-white/10 relative group">
+                    <img src="https://cdn.jsdelivr.net/gh/joabedigital01/imagens-site/criativos/sitedepois3.png" alt="Estilo 3" class="w-full h-auto object-cover transform transition duration-500 group-hover:scale-110">
+                    <div class="absolute bottom-2 left-2 bg-black/70 text-white text-[10px] px-2 py-1 rounded">Estilo: Editorial de Moda</div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                <div class="mb-10 bg-dark-900/40 inline-block p-8 rounded-3xl border border-white/5">
-                    <p class="text-gray-400 text-lg font-medium mb-2">De <span class="line-through">R$ 147,00</span> por apenas:</p>
-                    <div class="flex justify-center items-baseline">
-                        <span class="text-3xl font-bold text-gray-300 mr-2">R$</span>
-                        <span class="text-8xl font-black text-white tracking-tighter text-brand-cyan">19,90</span>
-                    </div>
-                    <p class="text-gray-400 font-bold mt-4">Pagamento Único. Receba hoje.</p>
+    <section class="py-12 bg-dark-900/50 border-t border-white/5">
+        <div class="max-w-4xl mx-auto px-4">
+            <h2 class="text-2xl font-black text-center mb-8">O que estão dizendo...</h2>
+            
+            <div class="grid md:grid-cols-3 gap-4">
+                <div class="glass p-5 rounded-2xl">
+                    <div class="flex text-yellow-400 mb-2 text-sm">★★★★★</div>
+                    <p class="text-gray-300 text-sm mb-4">"Eu ia fazer 42 anos e queria fotos bonitas pro Instagram, mas odeio estúdio. Fiz pelo celular do sofá de casa e choveu elogio. Ninguém acreditou que foi IA. Impecável!"</p>
+                    <p class="text-white font-bold text-xs">- Juliana R., 42 anos</p>
+                </div>
+                
+                <div class="glass p-5 rounded-2xl">
+                    <div class="flex text-yellow-400 mb-2 text-sm">★★★★★</div>
+                    <p class="text-gray-300 text-sm mb-4">"Comprei o pacote pra testar com uma foto do meu filho de 6 anos. Pedi tema de super-herói. Gente, o menino pirou achando que tava num filme! Melhor investimento de 20 reais da vida."</p>
+                    <p class="text-white font-bold text-xs">- Camila T., Mãe do Léo</p>
                 </div>
 
-                <ul class="mb-12 space-y-3 text-left inline-block mx-auto">
-                    <li class="flex items-center"><span class="text-brand-cyan mr-2">✓</span> 6 Fotos Profissionais (Resolução 4K)</li>
-                    <li class="flex items-center"><span class="text-brand-cyan mr-2">✓</span> Cenários de Luxo Variados</li>
-                    <li class="flex items-center"><span class="text-brand-cyan mr-2">✓</span> Entrega Rápida via E-mail</li>
-                    <li class="flex items-center"><span class="text-brand-cyan mr-2">✓</span> Direito de uso total das imagens</li>
-                </ul>
-
-                <a href="SEU_LINK_KIWIFY_19_90_AQUI" class="interactive-btn block w-full md:max-w-md mx-auto bg-gradient-to-r from-brand-cyan to-blue-500 text-dark-900 font-black text-2xl py-5 px-6 rounded-2xl shadow-neon-cyan hover:scale-[1.02] transition-all duration-300">
-                    GARANTIR MEU PACK POR R$ 19,90
-                </a>
-                <p class="text-red-500 text-sm mt-4 font-bold animate-pulse">⚠️ Atenção: Essa oferta pode sair do ar a qualquer momento.</p>
+                <div class="glass p-5 rounded-2xl">
+                    <div class="flex text-yellow-400 mb-2 text-sm">★★★★★</div>
+                    <p class="text-gray-300 text-sm mb-4">"Quem tem bebê sabe o inferno que é tentar fazer a criança parar quieta pra foto. Peguei umas selfies aleatórias da minha filha na cama e o sistema gerou fotos de princesa surreais."</p>
+                    <p class="text-white font-bold text-xs">- Amanda S., Mãe da Sofia</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <footer class="py-10 text-center text-gray-600 text-sm border-t border-white/5">
-        <p>© 2026 Face IA Studio. Todos os direitos reservados.</p>
+    <section id="oferta" class="py-16 relative overflow-hidden px-4">
+        <div class="max-w-3xl mx-auto">
+            <div class="glass rounded-3xl p-6 md:p-10 text-center relative shadow-2xl border-t border-brand-cyan/30">
+                <h2 class="text-3xl md:text-4xl font-black mb-4">
+                    Pack Essencial <br><span class="text-brand-cyan">(6 Fotos)</span>
+                </h2>
+                <p class="text-base text-gray-300 mb-8">Prove o poder da nossa tecnologia a preço de custo.</p>
+
+                <div class="mb-8 bg-dark-900/60 p-6 rounded-2xl border border-white/10">
+                    <p class="text-gray-400 text-sm font-medium mb-1">De <span class="line-through">R$ 147,00</span> por:</p>
+                    <div class="flex justify-center items-baseline">
+                        <span class="text-2xl font-bold text-gray-300 mr-1">R$</span>
+                        <span class="text-6xl md:text-7xl font-black text-white tracking-tighter text-brand-cyan">19,90</span>
+                    </div>
+                </div>
+
+                <a href="SEU_LINK_KIWIFY_19_90_AQUI" class="interactive-btn block w-full bg-brand-cyan text-dark-900 font-black text-xl py-5 px-4 rounded-2xl shadow-neon-cyan transition-all duration-300 mb-4">
+                    GARANTIR POR R$ 19,90
+                </a>
+                <p class="text-gray-500 text-xs flex justify-center items-center">
+                    🔒 Pagamento 100% Seguro. Acesso Imediato.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-8 text-center text-gray-600 text-xs border-t border-white/5">
+        <p>© 2026 Face IA Studio.</p>
     </footer>
 
     <script>
         function startSimulation() {
             const btn = document.getElementById('simulateBtn');
             const btnText = document.getElementById('btnText');
-            const btnIcon = document.getElementById('btnIcon');
             const loadingIcon = document.getElementById('loadingIcon');
             const beforeImage = document.getElementById('beforeImage');
             const afterImage = document.getElementById('afterImage');
             const loadingBar = document.getElementById('loadingBar');
 
-            // Estado de Carregamento
             btn.disabled = true;
-            btnText.textContent = "GERANDO RESULTADO...";
-            btnIcon.classList.add('hidden');
+            btnText.textContent = "PROCESSANDO...";
             loadingIcon.classList.remove('hidden');
             loadingBar.classList.remove('hidden');
 
-            // Inicia a barra de progresso falsa
-            setTimeout(() => { loadingBar.style.width = "100%"; }, 100);
+            setTimeout(() => { loadingBar.style.width = "100%"; }, 50);
 
-            // O "Reveal" após 3 segundos
             setTimeout(() => {
                 beforeImage.classList.add('opacity-0');
                 afterImage.classList.remove('opacity-0');
                 
-                // Volta o botão ao normal (mas com texto de sucesso)
-                btn.classList.add('bg-brand-cyan');
-                btnText.textContent = "✨ RESULTADO INCRÍVEL!";
+                btn.classList.add('bg-brand-cyan', 'text-dark-900');
+                btn.classList.remove('bg-white');
+                btnText.textContent = "✨ RESULTADO GERADO!";
                 loadingIcon.classList.add('hidden');
                 loadingBar.classList.add('hidden');
-                // btnIcon.classList.remove('hidden'); // Opcional: mostrar o ícone de raio de novo
-            }, 3000); // Tempo da "simulação" em milissegundos
+            }, 2000); // 2 segundos p/ mobile não perder a paciência
         }
     </script>
 
