@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Face IA Studio - Sua Melhor Versão por R$ 19,90</title>
+    <title>Face IA Studio - Sua Melhor Versão</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
     <script>
@@ -12,12 +12,10 @@
                 fontFamily: { sans: ['Inter', 'sans-serif'], },
                 extend: {
                     colors: {
-                        brand: { purple: '#8A2EFF', pink: '#FF2E93', cyan: '#00E5FF', },
+                        brand: { purple: '#8A2EFF', pink: '#FF2E93', cyan: '#00E5FF' },
                         dark: { 900: '#050505', 800: '#0a0a0a', 700: '#141414' }
                     },
-                    boxShadow: {
-                        'neon-cyan': '0 0 20px rgba(0, 229, 255, 0.3)',
-                    }
+                    boxShadow: { 'neon-cyan': '0 0 20px rgba(0, 229, 255, 0.3)', 'neon-purple': '0 0 20px rgba(138, 46, 255, 0.3)' }
                 }
             }
         }
@@ -37,23 +35,19 @@
         </div>
     </nav>
 
-    <section class="pt-28 pb-16 px-4 relative overflow-hidden">
+    <section class="pt-32 pb-16 px-4 relative overflow-hidden">
         <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-brand-purple/20 rounded-full blur-[100px] -z-10 opacity-30"></div>
 
         <div class="max-w-4xl mx-auto text-center">
-            <div class="inline-flex items-center bg-white/10 rounded-full px-3 py-1.5 mb-6 border border-white/20 animate-pulse">
-                 <span class="bg-red-500 w-2 h-2 rounded-full mr-2"></span>
-                 <span class="text-[10px] md:text-xs font-bold text-white uppercase tracking-wider">Oferta Liberada</span>
-             </div>
-            <h1 class="text-4xl md:text-6xl font-black leading-tight mb-4">
-                6 Fotos de Luxo. <br> <span class="text-gradient">Por Menos de 1 Pizza.</span>
+            <h1 class="text-4xl md:text-6xl font-black leading-tight mb-6">
+                Chega de apagar fotos porque <span class="text-gradient">você odiou o seu ângulo.</span>
             </h1>
             <p class="text-lg md:text-xl text-gray-400 mb-8 leading-relaxed px-2">
-                Transforme selfies comuns em ensaios profissionais. 
-                <span class="text-white font-bold block mt-1">Custa R$ 19,90 e fica pronto em minutos.</span>
+                O estúdio fotográfico tradicional cobra uma fortuna só para te deixar desconfortável. Transforme selfies comuns em ensaios profissionais, direto do seu sofá, por uma fração do preço.
             </p>
+            
             <a href="#oferta" class="interactive-btn flex items-center justify-center w-full md:w-auto md:inline-flex bg-brand-cyan text-dark-900 font-black text-lg md:text-xl py-4 md:py-5 px-8 rounded-2xl md:rounded-full shadow-neon-cyan transition-all hover:scale-105">
-                QUERO MEU ENSAIO 👉
+                VER OS PACOTES AGORA 👉
             </a>
         </div>
     </section>
@@ -63,113 +57,141 @@
             <div class="text-center lg:text-left">
                 <h2 class="text-3xl md:text-4xl font-black mb-4 leading-tight">A Mágica do <span class="text-brand-purple">Antes e Depois</span></h2>
                 <p class="text-gray-400 text-base md:text-lg mb-6 px-2 lg:px-0">
-                    Clique no botão abaixo da foto e veja como a nossa IA pegou uma selfie comum e transformou em uma imagem de estúdio premium.
+                    Clique no botão abaixo da foto e veja como a nossa IA pegou uma selfie comum e a transformou numa imagem premium de estúdio.
                 </p>
             </div>
 
             <div class="glass p-3 rounded-3xl border border-white/10 relative mx-auto w-full max-w-sm">
                 <div id="loadingBar" class="hidden absolute top-0 left-0 h-1 bg-brand-cyan transition-all duration-[2000ms] ease-out z-20 rounded-t-3xl" style="width: 0%"></div>
-                
                 <div class="aspect-[4/5] relative rounded-2xl overflow-hidden bg-dark-900">
                     <img id="beforeImage" src="https://cdn.jsdelivr.net/gh/joabedigital01/imagens-site/criativos/siteantes1.jpg" alt="Selfie Antes" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-500">
-                    
                     <img id="afterImage" src="https://cdn.jsdelivr.net/gh/joabedigital01/imagens-site/criativos/sitedepois1.png" alt="Resultado IA" class="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-500">
 
                     <button id="simulateBtn" onclick="startSimulation()" class="absolute bottom-6 left-1/2 -translate-x-1/2 bg-white text-dark-900 font-bold text-sm md:text-base px-6 py-3 rounded-full shadow-2xl hover:scale-105 transition flex items-center z-30 whitespace-nowrap interactive-btn w-11/12 justify-center">
                         <span id="btnText">✨ APLICAR EFEITO ESTÚDIO IA</span>
-                        <svg id="loadingIcon" class="animate-spin ml-2 h-5 w-5 text-dark-900 hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
                     </button>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="py-16 px-4">
-        <div class="max-w-5xl mx-auto text-center">
-            <h2 class="text-2xl md:text-3xl font-black mb-2">1 Selfie. Infinitas Possibilidades.</h2>
-            <p class="text-gray-400 mb-10">Veja outros estilos gerados a partir da mesma foto base.</p>
+    <section class="py-16 relative">
+        <div class="max-w-5xl mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-4xl font-black mb-12">Como Funciona? <br><span class="text-brand-cyan">É Ridiculamente Simples.</span></h2>
             
-            <div class="grid grid-cols-2 md:grid-cols-2 gap-4 max-w-2xl mx-auto">
-                <div class="rounded-2xl overflow-hidden border border-white/10 relative group">
-                    <img src="https://cdn.jsdelivr.net/gh/joabedigital01/imagens-site/criativos/sitedepois2.png" alt="Estilo 2" class="w-full h-auto object-cover transform transition duration-500 group-hover:scale-110">
-                    <div class="absolute bottom-2 left-2 bg-black/70 text-white text-[10px] px-2 py-1 rounded">Estilo: Retrato Clássico</div>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="glass p-8 rounded-3xl border-t border-white/10 relative">
+                    <div class="absolute -top-6 left-1/2 -translate-x-1/2 bg-brand-purple text-white font-black w-12 h-12 rounded-full flex items-center justify-center text-xl shadow-neon-purple">1</div>
+                    <div class="text-5xl mb-4 mt-2">🛒</div>
+                    <h3 class="text-xl font-bold mb-3 text-white">Escolha o Pacote</h3>
+                    <p class="text-gray-400 text-sm">Selecione uma das nossas ofertas abaixo e realize o pagamento em um ambiente 100% seguro.</p>
                 </div>
-                <div class="rounded-2xl overflow-hidden border border-white/10 relative group">
-                    <img src="https://cdn.jsdelivr.net/gh/joabedigital01/imagens-site/criativos/sitedepois3.png" alt="Estilo 3" class="w-full h-auto object-cover transform transition duration-500 group-hover:scale-110">
-                    <div class="absolute bottom-2 left-2 bg-black/70 text-white text-[10px] px-2 py-1 rounded">Estilo: Editorial de Moda</div>
+                <div class="glass p-8 rounded-3xl border-t border-white/10 relative">
+                    <div class="absolute -top-6 left-1/2 -translate-x-1/2 bg-brand-cyan text-dark-900 font-black w-12 h-12 rounded-full flex items-center justify-center text-xl shadow-neon-cyan">2</div>
+                    <div class="text-5xl mb-4 mt-2">📸</div>
+                    <h3 class="text-xl font-bold mb-3 text-white">Envie suas Fotos</h3>
+                    <p class="text-gray-400 text-sm">Após o pagamento, você será redirecionado para enviar de 5 a 10 selfies simples diretamente do seu celular.</p>
+                </div>
+                <div class="glass p-8 rounded-3xl border-t border-white/10 relative">
+                    <div class="absolute -top-6 left-1/2 -translate-x-1/2 bg-brand-pink text-white font-black w-12 h-12 rounded-full flex items-center justify-center text-xl">3</div>
+                    <div class="text-5xl mb-4 mt-2">✨</div>
+                    <h3 class="text-xl font-bold mb-3 text-white">Receba a Mágica</h3>
+                    <p class="text-gray-400 text-sm">Nossa Inteligência Artificial faz o trabalho duro e você recebe seu ensaio de luxo pronto para arrasar nas redes.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="py-12 bg-dark-900/50 border-t border-white/5">
-        <div class="max-w-4xl mx-auto px-4">
-            <h2 class="text-2xl font-black text-center mb-8">O que estão dizendo...</h2>
+    <section class="py-16 bg-dark-900/50 border-t border-white/5">
+        <div class="max-w-5xl mx-auto px-4">
+            <h2 class="text-3xl font-black text-center mb-2">Contra Fatos Não Há Argumentos</h2>
+            <p class="text-center text-gray-400 mb-10">Veja o que chega no nosso WhatsApp todos os dias.</p>
             
-            <div class="grid md:grid-cols-3 gap-4">
-                <div class="glass p-5 rounded-2xl">
-                    <div class="flex text-yellow-400 mb-2 text-sm">★★★★★</div>
-                    <p class="text-gray-300 text-sm mb-4">"Eu ia fazer 42 anos e queria fotos bonitas pro Instagram, mas odeio estúdio. Fiz pelo celular do sofá de casa e choveu elogio. Ninguém acreditou que foi IA. Impecável!"</p>
-                    <p class="text-white font-bold text-xs">- Juliana R., 42 anos</p>
-                </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
+                <img src="https://cdn.jsdelivr.net/gh/joabedigital01/imagens-site/criativos/provasocial1.png" alt="Depoimento de Cliente 1" class="rounded-2xl border border-white/10 shadow-lg hover:scale-105 transition duration-300 w-full object-cover">
+                <img src="https://cdn.jsdelivr.net/gh/joabedigital01/imagens-site/criativos/provasocial2.png" alt="Depoimento de Cliente 2" class="rounded-2xl border border-white/10 shadow-lg hover:scale-105 transition duration-300 w-full object-cover">
+                <img src="https://cdn.jsdelivr.net/gh/joabedigital01/imagens-site/criativos/provasocial3.png" alt="Depoimento de Cliente 3" class="rounded-2xl border border-white/10 shadow-lg hover:scale-105 transition duration-300 w-full object-cover">
+                <img src="https://cdn.jsdelivr.net/gh/joabedigital01/imagens-site/criativos/provasocial4.png" alt="Depoimento de Cliente 4" class="rounded-2xl border border-white/10 shadow-lg hover:scale-105 transition duration-300 w-full object-cover">
+            </div>
+        </div>
+    </section>
+
+    <section id="oferta" class="py-20 relative px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-black mb-4">Escolha o Seu <span class="text-brand-cyan">Pacote de Luxo</span></h2>
+                <p class="text-gray-400 text-lg">Sem taxas de estúdio. Sem tempo de espera ridículo. Acesso Imediato.</p>
+            </div>
+
+            <div class="grid lg:grid-cols-3 gap-8 items-center">
                 
-                <div class="glass p-5 rounded-2xl">
-                    <div class="flex text-yellow-400 mb-2 text-sm">★★★★★</div>
-                    <p class="text-gray-300 text-sm mb-4">"Comprei o pacote pra testar com uma foto do meu filho de 6 anos. Pedi tema de super-herói. Gente, o menino pirou achando que tava num filme! Melhor investimento de 20 reais da vida."</p>
-                    <p class="text-white font-bold text-xs">- Camila T., Mãe do Léo</p>
-                </div>
-
-                <div class="glass p-5 rounded-2xl">
-                    <div class="flex text-yellow-400 mb-2 text-sm">★★★★★</div>
-                    <p class="text-gray-300 text-sm mb-4">"Quem tem bebê sabe o inferno que é tentar fazer a criança parar quieta pra foto. Peguei umas selfies aleatórias da minha filha na cama e o sistema gerou fotos de princesa surreais."</p>
-                    <p class="text-white font-bold text-xs">- Amanda S., Mãe da Sofia</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="oferta" class="py-16 relative overflow-hidden px-4">
-        <div class="max-w-3xl mx-auto">
-            <div class="glass rounded-3xl p-6 md:p-10 text-center relative shadow-2xl border-t border-brand-cyan/30">
-                <h2 class="text-3xl md:text-4xl font-black mb-4">
-                    Pack Essencial <br><span class="text-brand-cyan">(6 Fotos)</span>
-                </h2>
-                <p class="text-base text-gray-300 mb-8">Prove o poder da nossa tecnologia a preço de custo.</p>
-
-                <div class="mb-8 bg-dark-900/60 p-6 rounded-2xl border border-white/10">
-                    <p class="text-gray-400 text-sm font-medium mb-1">De <span class="line-through">R$ 147,00</span> por:</p>
-                    <div class="flex justify-center items-baseline">
-                        <span class="text-2xl font-bold text-gray-300 mr-1">R$</span>
-                        <span class="text-6xl md:text-7xl font-black text-white tracking-tighter text-brand-cyan">19,90</span>
+                <div class="glass rounded-3xl p-8 text-center border-t-2 border-white/10 opacity-90 transform transition hover:scale-105">
+                    <h3 class="text-2xl font-bold text-white mb-2">Básico</h3>
+                    <p class="text-gray-400 text-sm mb-6">Para testar o poder da IA.</p>
+                    <div class="mb-6">
+                        <span class="text-4xl font-black text-white">R$ 19,90</span>
                     </div>
+                    <ul class="text-left space-y-3 mb-8 text-sm text-gray-300">
+                        <li class="flex items-center"><span class="text-brand-cyan mr-2">✓</span> 6 Fotos de Alta Qualidade</li>
+                        <li class="flex items-center"><span class="text-brand-cyan mr-2">✓</span> 1 Cenário à escolha</li>
+                        <li class="flex items-center"><span class="text-brand-cyan mr-2">✓</span> Entrega em 24 horas</li>
+                    </ul>
+                    <a href="LINK_KIWIFY_1990" class="block w-full bg-white/10 hover:bg-white/20 text-white font-bold py-3 rounded-xl transition">Selecionar Básico</a>
                 </div>
 
-                <a href="SEU_LINK_KIWIFY_19_90_AQUI" class="interactive-btn block w-full bg-brand-cyan text-dark-900 font-black text-xl py-5 px-4 rounded-2xl shadow-neon-cyan transition-all duration-300 mb-4">
-                    GARANTIR POR R$ 19,90
-                </a>
-                <p class="text-gray-500 text-xs flex justify-center items-center">
-                    🔒 Pagamento 100% Seguro. Acesso Imediato.
-                </p>
+                <div class="glass rounded-3xl p-10 text-center border-2 border-brand-cyan relative transform scale-105 shadow-neon-cyan bg-dark-800/80 z-10">
+                    <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-brand-cyan text-dark-900 font-black px-4 py-1 rounded-full text-xs uppercase tracking-wider">
+                        MAIS VENDIDO 🔥
+                    </div>
+                    <h3 class="text-3xl font-black text-brand-cyan mb-2 mt-4">VIP Premium</h3>
+                    <p class="text-gray-300 text-sm mb-6">O ensaio completo para as suas redes.</p>
+                    <div class="mb-6">
+                        <p class="text-gray-500 line-through text-sm">De R$ 147,00</p>
+                        <span class="text-5xl font-black text-white">R$ 39,90</span>
+                    </div>
+                    <ul class="text-left space-y-4 mb-8 text-base text-white font-medium">
+                        <li class="flex items-center"><span class="text-brand-cyan mr-3 text-xl">✓</span> <b>15 Fotos</b> Resolução 4K</li>
+                        <li class="flex items-center"><span class="text-brand-cyan mr-3 text-xl">✓</span> 3 Cenários Premium</li>
+                        <li class="flex items-center"><span class="text-brand-cyan mr-3 text-xl">✓</span> <b>Entrega Expressa (Prioridade)</b></li>
+                        <li class="flex items-center"><span class="text-brand-cyan mr-3 text-xl">✓</span> Tratamento de Pele com IA</li>
+                    </ul>
+                    <a href="LINK_KIWIFY_3990" class="interactive-btn block w-full bg-brand-cyan text-dark-900 font-black text-xl py-4 rounded-xl shadow-[0_0_15px_rgba(0,229,255,0.4)] hover:bg-cyan-400 transition">
+                        QUERO O PACOTE VIP
+                    </a>
+                </div>
+
+                <div class="glass rounded-3xl p-8 text-center border-t-2 border-brand-purple/50 opacity-90 transform transition hover:scale-105">
+                    <h3 class="text-2xl font-bold text-brand-purple mb-2">Ilimitado</h3>
+                    <p class="text-gray-400 text-sm mb-6">Para quem quer tudo.</p>
+                    <div class="mb-6">
+                        <span class="text-4xl font-black text-white">R$ 97,00</span>
+                    </div>
+                    <ul class="text-left space-y-3 mb-8 text-sm text-gray-300">
+                        <li class="flex items-center"><span class="text-brand-purple mr-2">✓</span> <b>30 Fotos</b> Resolução 4K</li>
+                        <li class="flex items-center"><span class="text-brand-purple mr-2">✓</span> Temas e Cenários Livres</li>
+                        <li class="flex items-center"><span class="text-brand-purple mr-2">✓</span> Arquivo para Impressão</li>
+                    </ul>
+                    <a href="LINK_KIWIFY_97" class="block w-full bg-brand-purple hover:bg-purple-600 text-white font-bold py-3 rounded-xl transition">Selecionar Ilimitado</a>
+                </div>
+
             </div>
+            <p class="text-center text-gray-500 text-sm mt-8">🔒 Pagamento processado de forma 100% segura. Acesso Imediato.</p>
         </div>
     </section>
 
     <footer class="py-8 text-center text-gray-600 text-xs border-t border-white/5">
-        <p>© 2026 Face IA Studio.</p>
+        <p>© 2026 Face IA Studio. Todos os direitos reservados.</p>
     </footer>
 
     <script>
         function startSimulation() {
             const btn = document.getElementById('simulateBtn');
-            const btnText = document.getElementById('btnText');
-            const loadingIcon = document.getElementById('loadingIcon');
             const beforeImage = document.getElementById('beforeImage');
             const afterImage = document.getElementById('afterImage');
             const loadingBar = document.getElementById('loadingBar');
 
             btn.disabled = true;
-            btnText.textContent = "PROCESSANDO...";
-            loadingIcon.classList.remove('hidden');
+            btn.innerHTML = "PROCESSANDO... ⏳";
             loadingBar.classList.remove('hidden');
 
             setTimeout(() => { loadingBar.style.width = "100%"; }, 50);
@@ -180,12 +202,10 @@
                 
                 btn.classList.add('bg-brand-cyan', 'text-dark-900');
                 btn.classList.remove('bg-white');
-                btnText.textContent = "✨ RESULTADO GERADO!";
-                loadingIcon.classList.add('hidden');
+                btn.innerHTML = "✨ RESULTADO GERADO!";
                 loadingBar.classList.add('hidden');
-            }, 2000); // 2 segundos p/ mobile não perder a paciência
+            }, 2000); 
         }
     </script>
-
 </body>
 </html>
