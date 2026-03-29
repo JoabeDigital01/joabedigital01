@@ -17,7 +17,20 @@
     'https://connect.facebook.net/en_US/fbevents.js');
     fbq('init', '1278015170938463');
     fbq('track', 'PageView');
-    fbq('track', 'Purchase', { value: 49.90, currency: 'BRL' });
+
+    // Dispara Purchase apenas uma vez por dispositivo
+    (function() {
+        var cookieName = 'faceia_purchase_4990';
+        var alreadyFired = document.cookie.split(';').some(function(c) {
+            return c.trim().startsWith(cookieName + '=');
+        });
+        if (!alreadyFired) {
+            fbq('track', 'Purchase', { value: 49.90, currency: 'BRL' });
+            var exp = new Date();
+            exp.setFullYear(exp.getFullYear() + 1);
+            document.cookie = cookieName + '=1;expires=' + exp.toUTCString() + ';path=/;SameSite=Lax';
+        }
+    })();
     </script>
     <noscript><img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=1278015170938463&ev=PageView&noscript=1"/></noscript>
