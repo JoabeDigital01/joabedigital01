@@ -20,12 +20,12 @@
 
     // Dispara Purchase apenas uma vez por dispositivo
     (function() {
-        var cookieName = 'faceia_purchase_4990';
+        var cookieName = 'faceia_purchase_2699';
         var alreadyFired = document.cookie.split(';').some(function(c) {
             return c.trim().startsWith(cookieName + '=');
         });
         if (!alreadyFired) {
-            fbq('track', 'Purchase', { value: 49.90, currency: 'BRL' });
+            fbq('track', 'Purchase', { value: 26.99, currency: 'BRL' });
             var exp = new Date();
             exp.setFullYear(exp.getFullYear() + 1);
             document.cookie = cookieName + '=1;expires=' + exp.toUTCString() + ';path=/;SameSite=Lax';
